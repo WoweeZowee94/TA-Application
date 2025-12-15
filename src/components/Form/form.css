@@ -1,13 +1,91 @@
 .app-container {
+  max-width: 800px;
+  margin: 60px auto 40px;
   padding: 32px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  font-family: "Lato", sans-serif;
+  border: 1px solid #e5e5e5;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .app-section {
   display: flex;
   flex-direction: row;
-  gap: 5px;
-  align-items: center;
+  gap: 10px;
+  align-items: flex-start;
 }
+
+.app-input {
+  width: 75%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  background: #fafafa;
+  transition: all 0.18s ease-in-out;
+  outline: none;
+}
+
+.app-select {
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.2sec ease, box-shadow 0.2s ease;
+}
+
+.app-select:hover {
+  border-color: #b7b7b7;
+}
+
+.app-select:focus {
+  outline: none;
+  border-color: #ce2029;
+  box-shadow: 0 0 0 3px rgba(206, 32, 41, 0.2);
+}
+
+.app-textarea {
+  width: 75%;
+  min-height: 120px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  resize: vertical; 
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+.app-textarea:hover {
+  border-color: #b7b7b7;
+}
+
+.app-textarea:focus {
+  outline: none;
+  border-color: #ce2029;
+  box-shadow: 0 0 0 3px rgba(206, 32, 41, 0.2);
+}
+
+.app-textarea::placeholder {
+  color: #777;
+  opacity: 0.7;
+}
+
+.app-title {
+  min-width: 200px;       
+  max-width: 220px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  padding-top: 6px; 
+}
+

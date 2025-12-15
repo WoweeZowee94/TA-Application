@@ -1,14 +1,15 @@
 import "./header.css";
+import logo from "../../media/logo.png"
 
 const Header = ({ ...props }) => {
   return (
     <div className="header-container">
-      <div className="header-title"> TA Application </div>
+      <img src={logo} alt="NEU Logo" height="150px"/>
       <>
-      <button className="header-button" type="button">
-        {" "}
-        Faculty
-      </button>
+        <button className="header-button" type="button">
+          {" "}
+          Faculty
+        </button>
       </>
     </div>
   );
