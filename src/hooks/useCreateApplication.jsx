@@ -1,16 +1,22 @@
 import { useState } from "react";
+import { db } from "../firebase";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
+
 export const useCreateApplication = () => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    i9: false,
+    i9: "",
     firstName: "",
     lastName: "",
     email: "",
     nuid: "",
     gpa: "",
     major: "",
-    entrance: "",
-    graduation: "",
+    entranceSemester: "",
+    entranceYear: "",
+    graduationSemester: "",
+    graduationYear: "",
     skills_interests: "",
     coop: "",
     previous: "",
@@ -31,5 +37,23 @@ export const useCreateApplication = () => {
     }));
   };
 
-  return { formData, handleFormState, loading, toggleLoading };
+  const submitApplication = async () => {
+    try {
+      const appDef = collection(db, "applications");
+      await setDoc(doc(db, "applications", formData.nuid), {
+        ...formData,
+        createdAt: serverTimestamp(),
+      });
+    } catch (error) {
+      throw new Error(`Firebase error: ${error.message}`);
+    }
+  };
+
+  return {
+    formData,
+    handleFormState,
+    loading,
+    toggleLoading,
+    submitApplication,
+  };
 };

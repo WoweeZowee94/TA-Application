@@ -29,7 +29,7 @@
 .header-button {
   width: 100%;
   max-width: 100px;
-  padding: 8px;
+  padding: 10px;
   background: #ce2029;
   color: white;
   font-size: 16px;
@@ -42,4 +42,16 @@
   margin-top: auto;
   margin-bottom: auto;
   margin-right: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
+
+.header-button:hover {
+  background: #b61c24;
+}
+
+.header-button:active {
+  transform: scale(0.97);
+}
+
+
