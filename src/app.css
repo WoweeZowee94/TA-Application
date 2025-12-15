@@ -1,0 +1,6 @@
+.page-container {
+    padding-top:60px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: #f7f7f7;
+}

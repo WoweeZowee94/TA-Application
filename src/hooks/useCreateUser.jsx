@@ -10,6 +10,8 @@ export const useCreateUser = () => {
     lastName: "",
     nuid: "",
     email: "",
+    passwordOne: "",
+    passwordTwo: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -47,10 +49,38 @@ export const useCreateUser = () => {
     }
   };
 
+  const validateFormData = () => {
+    if (
+      userData.email.trim() === "" ||
+      userData.firstName.trim() === "" ||
+      userData.lastName.trim() === "" ||
+      userData.nuid.trim() === "" ||
+      userData.passwordOne.trim() === "" ||
+      userData.passwordTwo.trim() === ""
+    ) {
+      setError("Fields cannot be empty.");
+      return false;
+    } else if (userData.passwordOne !== userData.passwordTwo) {
+      setError("Passwords do not match.");
+      return false;
+    } else if (userData.passwordOne.length < 6) {
+      setError("Password must be at least 6 characters.");
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   const registerUser = async () => {
     setLoading(true);
     setError(null);
 
+    // Validate form inputs
+    if (!validateFormData()) {
+        return
+    }
+
+    // Check for existing user with input credentials
     const duplicateCheck = await checkIfUserExists(
       userData.email,
       userData.nuid
@@ -61,7 +91,7 @@ export const useCreateUser = () => {
         const cred = await createUserWithEmailAndPassword(
           auth,
           userData.email,
-          userData.password
+          userData.passwordOne
         );
 
         const uid = cred.user.uid;
@@ -71,6 +101,7 @@ export const useCreateUser = () => {
           lastName: userData.lastName,
           email: userData.email,
           nuid: userData.nuid,
+          password: userData.passwordOne,
           createdAt: serverTimestamp(),
         });
       } else {

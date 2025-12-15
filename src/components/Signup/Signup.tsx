@@ -26,6 +26,16 @@ const Signup = () => {
         />
       </div>
       <div className="form-section">
+        <div className="input-title">NUID</div>
+        <input
+          className="form-input"
+          type="text"
+          name="nuid"
+          value={userData.nuid}
+          onChange={handleUserState}
+        />
+      </div>
+      <div className="form-section">
         <div className="input-title">Email</div>
         <input
           className="form-input"
@@ -36,12 +46,22 @@ const Signup = () => {
         />
       </div>
       <div className="form-section">
-        <div className="input-title">NUID</div>
+        <div className="input-title">Password</div>
         <input
           className="form-input"
-          type="text"
-          name="nuid"
-          value={userData.nuid}
+          type="password"
+          name="passwordOne"
+          value={userData.passwordOne}
+          onChange={handleUserState}
+        />
+      </div>
+      <div className="form-section">
+        <div className="input-title">Confirm Password</div>
+        <input
+          className="form-input"
+          type="password"
+          name="passwordTwo"
+          value={userData.passwordTwo}
           onChange={handleUserState}
         />
       </div>

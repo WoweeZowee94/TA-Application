@@ -1,0 +1,13 @@
+.app-container {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.app-section {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
